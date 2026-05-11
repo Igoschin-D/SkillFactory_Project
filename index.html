@@ -8801,12 +8801,19 @@
         el.classList.remove('t-animate');
       });
 
-      // document.querySelectorAll('.t396__artboard').forEach(function (el) {
-      //   el.style.overflow = 'hidden';
-      // });
+      /* ВАЖНО: анкете оставляем overflow visible */
+      var formBlock = document.querySelector('#rec748244456 .t396__artboard');
+      if (formBlock) {
+        formBlock.style.overflow = 'visible';
+      }
 
-      document.querySelectorAll('.t396__elem').forEach(function (el) {
-        el.style.touchAction = 'pan-y';
+      document.querySelectorAll('#rec748244456, #rec748244456 .t396, #rec748244456 .t396__artboard').forEach(function (el) {
+        el.style.overflow = 'visible';
+      });
+
+      document.querySelectorAll('#rec748244456 iframe').forEach(function (el) {
+        el.style.pointerEvents = 'auto';
+        el.style.display = 'block';
       });
     }
   });
