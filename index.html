@@ -901,7 +901,7 @@
           data-artboard-height-res-960="580" data-artboard-height_vh-res-960="100">
           <div class="t396__carrier" data-artboard-recid="748244418"></div>
           <div class="t396__filter" data-artboard-recid="748244418"></div>
-          <!-- <div class='t396__elem tn-elem tn-elem_76758 tn-elem__7482444181716450335727' data-elem-id='1716450335727'
+          <div class='t396__elem tn-elem tn-elem_76758 tn-elem__7482444181716450335727' data-elem-id='1716450335727'
             data-elem-type='html' data-field-top-value="44" data-field-left-value="-935" data-field-height-value="170"
             data-field-width-value="376" data-field-axisy-value="top" data-field-axisx-value="left"
             data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px"
@@ -928,7 +928,7 @@
                 <source src="https://b197e96e-9001-46ea-9be4-723039885238.selstorage.ru/1-26_blackwater.mp4"
                   type="video/mp4">
               </video>
-            </div> -->
+            </div>
           </div>
           <div class='t396__elem tn-elem tn-elem__7482444181715086200757' data-elem-id='1715086200757'
             data-elem-type='image' data-field-top-value="95" data-field-left-value="0" data-field-height-value="98"
@@ -1019,7 +1019,7 @@
                 src='https://static.tildacdn.com/tild3638-3138-4030-b964-323334613362/___svg.svg' alt=''
                 imgfield='tn_img_1715697579793' /> </div>
           </div>
-          <!-- <div class='t396__elem tn-elem tn-elem__7482444181715086200774 t-animate' data-elem-id='1715086200774'
+          <div class='t396__elem tn-elem tn-elem__7482444181715086200774 t-animate' data-elem-id='1715086200774'
             data-elem-type='shape' data-field-top-value="1" data-field-left-value="0" data-field-height-value="601"
             data-field-width-value="1400" data-field-axisy-value="center" data-field-axisx-value="center"
             data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px"
@@ -1032,8 +1032,8 @@
             <div class='tn-atom t-bgimg'
               data-original="https://static.tildacdn.com/tild6130-6235-4232-a232-333238303433/photo.png" aria-label=''
               role="img"> </div>
-          </div> -->
-          <!-- <div class='t396__elem tn-elem swipe-unlocker tn-elem__7482444181714745570712 t396__elem--anim-hidden'
+          </div>
+          <div class='t396__elem tn-elem swipe-unlocker tn-elem__7482444181714745570712 t396__elem--anim-hidden'
             data-elem-id='1714745570712' data-elem-type='shape' data-field-top-value="215" data-field-left-value="-1246"
             data-field-height-value="78" data-field-width-value="320" data-field-axisy-value="center"
             data-field-axisx-value="center" data-field-container-value="grid" data-field-topunits-value="px"
@@ -1047,7 +1047,7 @@
             <div class='tn-atom t-bgimg'
               data-original="https://static.tildacdn.com/tild3631-6561-4236-b838-376535656466/_1_.png" aria-label=''
               role="img"> </div>
-          </div> -->
+          </div>
           <div class='t396__elem tn-elem tn-elem__7482444181731594303236' data-elem-id='1731594303236'
             data-elem-type='text' data-field-top-value="32" data-field-left-value="4233" data-field-height-value="1612"
             data-field-width-value="560" data-field-axisy-value="top" data-field-axisx-value="left"
@@ -1288,6 +1288,10 @@
 
                       $('.swiper').addClass('finish-mode');
                       $('.uc-swipe-block').addClass('slide-move');
+
+                      setTimeout(function () {
+                        $('.uc-swipe-block').remove();
+                      }, 1600);
                       $('div#allrecords').addClass('hide-padding');
 
                       $('.t-body').addClass('overflow');
@@ -8770,6 +8774,28 @@
   <script
     type="text/javascript">if (!window.mainTracker) { window.mainTracker = 'tilda'; }
       setTimeout(function () { (function (d, w, k, o, g) { var n = d.getElementsByTagName(o)[0], s = d.createElement(o), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.key = k; s.id = "tildastatscript"; s.src = g; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, 'aeab0211bbd02750b72861cc5bcdb74a', 'script', 'https://static.tildacdn.com/js/tilda-stat-1.0.min.js'); }, 2000);</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.innerWidth <= 640) {
+      document.querySelectorAll('[data-animate-prx="scroll"]').forEach(function (el) {
+        el.removeAttribute('data-animate-prx');
+        el.removeAttribute('data-animate-style');
+        el.removeAttribute('data-animate-duration');
+        el.removeAttribute('data-animate-scale');
+        el.classList.remove('t-animate');
+      });
+
+      document.querySelectorAll('.t396__artboard').forEach(function (el) {
+        el.style.overflow = 'hidden';
+      });
+
+      document.querySelectorAll('.t396__elem').forEach(function (el) {
+        el.style.touchAction = 'pan-y';
+      });
+    }
+  });
+</script>
 </body>
 
 </html>
