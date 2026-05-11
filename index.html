@@ -251,6 +251,45 @@
   }
 </style>
 
+
+<style id="mobile-scroll-final-fix-v4">
+  @media screen and (max-width: 640px) {
+    html,
+    body,
+    #allrecords {
+      height: auto !important;
+      min-height: 100% !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      touch-action: pan-y !important;
+      -webkit-overflow-scrolling: touch !important;
+      overscroll-behavior-y: auto !important;
+    }
+
+    body.t-body {
+      position: relative !important;
+      overflow-y: auto !important;
+    }
+
+    #rec748244425,
+    #rec748244425 * {
+      touch-action: pan-y !important;
+    }
+
+    /* The Yandex map after the date block can capture vertical swipes on phones.
+       Disable map touch interception so the page continues to scroll normally. */
+    #rec752798779 .t-map-lazyload,
+    #rec752798779 .t-map,
+    #rec752798779 .t-map *,
+    #rec752798779 iframe,
+    #rec752798779 ymaps,
+    #rec752798779 [class*="ymaps"] {
+      pointer-events: none !important;
+      touch-action: pan-y !important;
+    }
+  }
+</style>
+
 </head>
 
 <body class="t-body" style="margin:0;"> <!--allrecords-->
@@ -2205,285 +2244,128 @@
       <script>t_onFuncLoad('t396_initialScale', function () { t396_initialScale('748244424'); }); t_onReady(function () { t_onFuncLoad('t396_init', function () { t396_init('748244424'); }); });</script>
       <!-- /T396 -->
     </div>
-    <div id="rec748244425" class="r t-rec t-rec_pb_0 t-screenmax-640px" style="padding-bottom:0px; "
-      data-record-type="396" data-screen-max="640px"> <!-- T396 -->
+    <div id="rec748244425" class="r t-rec t-rec_pb_0 t-screenmax-640px wedding-date-static-block"
+      style="padding-bottom:0px;" data-record-type="html" data-screen-max="640px">
+      <!-- FIX V4: original Tilda Zero Block was replaced with a plain static HTML block.
+           The old block had a full-size animated shape after date_svadbi.png in the DOM; on phones
+           that layer can sit above the image and steal vertical swipes. This version has no t396,
+           no t-animate layers and no t396_init for this block, so browser native scroll works. -->
       <style>
-        #rec748244425 .t396__artboard {
-          height: 450px;
-          background-color: #0;
-        }
-
-        #rec748244425 .t396__filter {
-          height: 450px;
-        }
-
-        #rec748244425 .t396__carrier {
-          height: 450px;
-          background-position: center center;
-          background-attachment: scroll;
-          background-size: cover;
-          background-repeat: no-repeat;
-        }
-
-        @media screen and (max-width:1199px) {
-
-          #rec748244425 .t396__artboard,
-          #rec748244425 .t396__filter,
-          #rec748244425 .t396__carrier {
-            height: 220px;
-          }
-
-          #rec748244425 .t396__filter {}
-
-          #rec748244425 .t396__carrier {
-            background-attachment: scroll;
-          }
-        }
-
-        @media screen and (max-width:959px) {
-
-          #rec748244425 .t396__artboard,
-          #rec748244425 .t396__filter,
-          #rec748244425 .t396__carrier {
-            height: 175px;
-          }
-
-          #rec748244425 .t396__filter {}
-
-          #rec748244425 .t396__carrier {
-            background-attachment: scroll;
+        @media screen and (min-width:641px) {
+          #rec748244425.wedding-date-static-block {
+            display: none !important;
           }
         }
 
         @media screen and (max-width:640px) {
-
-          #rec748244425 .t396__artboard,
-          #rec748244425 .t396__filter,
-          #rec748244425 .t396__carrier {
-            height: 565px;
+          #rec748244425.wedding-date-static-block {
+            display: block !important;
+            position: relative !important;
+            height: 565px !important;
+            min-height: 565px !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+            background: transparent !important;
+            touch-action: pan-y !important;
+            -webkit-overflow-scrolling: touch !important;
+            overscroll-behavior-y: auto !important;
           }
 
-          #rec748244425 .t396__filter {}
-
-          #rec748244425 .t396__carrier {
-            background-attachment: scroll;
+          #rec748244425 .wedding-date-static {
+            position: relative !important;
+            display: block !important;
+            width: 100% !important;
+            height: 565px !important;
+            min-height: 565px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+            touch-action: pan-y !important;
+            -webkit-overflow-scrolling: touch !important;
+            background: transparent !important;
+            isolation: isolate;
           }
-        }
 
-        #rec748244425 .tn-elem[data-elem-id="1710944934362"] {
-          z-index: 3;
-          top: 59px;
-          left: calc(50% - 75px + 0px);
-          width: 150px;
-          height: 2px;
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1710944934362"] .tn-atom {
-          background-color: #a4a4a4;
-          background-position: center center;
-          border-color: transparent;
-          border-style: solid;
-        }
-
-        @media screen and (max-width:1199px) {}
-
-        @media screen and (max-width:959px) {}
-
-        @media screen and (max-width:640px) {
-          #rec748244425 .tn-elem[data-elem-id="1710944934362"] {
-            top: 36px;
-            left: calc(50% - 75px + 0px);
-            width: 100px;
-            height: 1px;
-          }
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1710944940709"] {
-          z-index: 3;
-          top: 59px;
-          left: calc(50% - 75px + 0px);
-          width: 150px;
-          height: 2px;
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1710944940709"] .tn-atom {
-          background-color: #a4a4a4;
-          background-position: center center;
-          border-color: transparent;
-          border-style: solid;
-        }
-
-        @media screen and (max-width:1199px) {}
-
-        @media screen and (max-width:959px) {}
-
-        @media screen and (max-width:640px) {
-          #rec748244425 .tn-elem[data-elem-id="1710944940709"] {
-            top: 506px;
-            left: calc(50% - 75px + 0px);
-            width: 100px;
-            height: 1px;
-          }
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1713255750301"] {
-          z-index: 3;
-          top: 120px;
-          left: calc(50% - 35px + -404px);
-          width: 70px;
-          height: auto;
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1713255750301"] .tn-atom {
-          background-position: center center;
-          border-color: transparent;
-          border-style: solid;
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1713255750301"] .tn-atom__img {}
-
-        @media screen and (max-width:1199px) {
-          #rec748244425 .tn-elem[data-elem-id="1713255750301"] {
-            top: 290pxpx;
-            left: calc(50% - 35px + 20pxpx);
-            height: auto;
-          }
-        }
-
-        @media screen and (max-width:959px) {}
-
-        @media screen and (max-width:640px) {
-          #rec748244425 .tn-elem[data-elem-id="1713255750301"] {
-            top: 305px;
-            left: calc(50% - 35px + 65px);
-            width: 44px;
-            height: auto;
-          }
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1715803391236"] {
-          z-index: 3;
-          top: 20px;
-          left: calc(50% - 100px + 0px);
-          width: 200px;
-          height: auto;
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1715803391236"] .tn-atom {
-          background-position: center center;
-          border-color: transparent;
-          border-style: solid;
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1715803391236"] .tn-atom__img {}
-
-        @media screen and (max-width:1199px) {}
-
-        @media screen and (max-width:959px) {}
-
-        @media screen and (max-width:640px) {
-          #rec748244425 .tn-elem[data-elem-id="1715803391236"] {
-            top: 101px;
-            left: calc(50% - 100px + 1px);
-            width: 209px;
-            height: auto;
-          }
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1715803391240"] {
-          z-index: 3;
-          top: calc(225px - 50px + 142px);
-          left: calc(50% - 50px + -485px);
-          width: 100px;
-          height: 100px;
-        }
-
-        #rec748244425 .tn-elem[data-elem-id="1715803391240"] .tn-atom {
-          background-position: center center;
-          background-size: cover;
-          background-repeat: no-repeat;
-          border-color: transparent;
-          border-style: solid;
-        }
-
-        @media screen and (max-width:1199px) {}
-
-        @media screen and (max-width:959px) {}
-
-        @media screen and (max-width:640px) {
-          #rec748244425 .tn-elem[data-elem-id="1715803391240"] {
-            top: calc(225px - 50px + 0px);
-            left: calc(50% - 50px + 6px);
+          #rec748244425 .wedding-date-static::before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: 50%;
             width: 573px;
             height: 565px;
+            transform: translateX(calc(-50% + 6px));
+            background-image: url('https://static.tildacdn.com/tild6130-6235-4232-a232-333238303433/photo.png');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            pointer-events: none !important;
+          }
+
+          #rec748244425 .wedding-date-line {
+            position: absolute;
+            left: 50%;
+            width: 100px;
+            height: 1px;
+            transform: translateX(-50%);
+            background-color: #a4a4a4;
+            z-index: 2;
+            pointer-events: none !important;
+          }
+
+          #rec748244425 .wedding-date-line--top {
+            top: 36px;
+          }
+
+          #rec748244425 .wedding-date-line--bottom {
+            top: 506px;
+          }
+
+          #rec748244425 .wedding-date-img {
+            position: absolute;
+            z-index: 3;
+            top: 101px;
+            left: 50%;
+            width: 209px;
+            height: auto;
+            transform: translateX(calc(-50% + 1px));
+            display: block;
+            max-width: none;
+            pointer-events: none !important;
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -webkit-user-drag: none !important;
+            touch-action: pan-y !important;
+          }
+
+          #rec748244425 .wedding-date-flower {
+            position: absolute;
+            z-index: 4;
+            top: 289px;
+            left: 50%;
+            width: 44px;
+            height: auto;
+            transform: translateX(calc(-50% + 62px));
+            display: block;
+            pointer-events: none !important;
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -webkit-user-drag: none !important;
+            touch-action: pan-y !important;
           }
         }
       </style>
-      <div class='t396'>
-        <div class="t396__artboard" data-artboard-recid="748244425" data-artboard-screens="320,641,960,1200"
-          data-artboard-height="450" data-artboard-valign="center" data-artboard-upscale="window"
-          data-artboard-height-res-320="565" data-artboard-height-res-641="175" data-artboard-height-res-960="220">
-          <div class="t396__carrier" data-artboard-recid="748244425"></div>
-          <div class="t396__filter" data-artboard-recid="748244425"></div>
-          <div class='t396__elem tn-elem tn-elem__7482444251710944934362 t-animate' data-elem-id='1710944934362'
-            data-elem-type='shape' data-field-top-value="59" data-field-left-value="0" data-field-height-value="2"
-            data-field-width-value="150" data-field-axisy-value="top" data-field-axisx-value="center"
-            data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px"
-            data-field-heightunits-value="px" data-field-widthunits-value="px" data-animate-style="fadein"
-            data-animate-duration="3" data-animate-trigger-offset="50" data-field-top-res-320-value="36"
-            data-field-left-res-320-value="0" data-field-height-res-320-value="1" data-field-width-res-320-value="100">
-            <div class='tn-atom'> </div>
-          </div>
-          <div class='t396__elem tn-elem tn-elem__7482444251710944940709 t-animate' data-elem-id='1710944940709'
-            data-elem-type='shape' data-field-top-value="59" data-field-left-value="0" data-field-height-value="2"
-            data-field-width-value="150" data-field-axisy-value="top" data-field-axisx-value="center"
-            data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px"
-            data-field-heightunits-value="px" data-field-widthunits-value="px" data-animate-style="fadein"
-            data-animate-duration="3" data-animate-trigger-offset="50" data-field-top-res-320-value="506"
-            data-field-left-res-320-value="0" data-field-height-res-320-value="1" data-field-width-res-320-value="100">
-            <div class='tn-atom'> </div>
-          </div>
-          <div class='t396__elem tn-elem tn-elem__7482444251713255750301 t-animate' data-elem-id='1713255750301'
-            data-elem-type='image' data-field-top-value="120" data-field-left-value="-404" data-field-width-value="70"
-            data-field-axisy-value="top" data-field-axisx-value="center" data-field-container-value="grid"
-            data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value=""
-            data-field-widthunits-value="px" data-animate-style="zoomin" data-animate-duration="3"
-            data-animate-scale="4" data-animate-mobile="y" data-field-filewidth-value="699"
-            data-field-fileheight-value="705" data-field-top-res-320-value="289" data-field-left-res-320-value="62"
-            data-field-width-res-320-value="44" data-field-top-res-960-value="290px"
-            data-field-left-res-960-value="20px">
-            <div class='tn-atom'> <img class='tn-atom__img t-img'
-                data-original='https://static.tildacdn.com/tild3533-6236-4437-b862-316234303962/___.png'
-                src='https://thb.tildacdn.com/tild3533-6236-4437-b862-316234303962/-/resize/20x/___.png' alt=''
-                imgfield='tn_img_1713255750301' /> </div>
-          </div>
-          <div class='t396__elem tn-elem tn-elem__7482444251715803391236' data-elem-id='1715803391236'
-            data-elem-type='image' data-field-top-value="20" data-field-left-value="0" data-field-width-value="200"
-            data-field-axisy-value="top" data-field-axisx-value="center" data-field-container-value="grid"
-            data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value=""
-            data-field-widthunits-value="px" data-field-filewidth-value="666" data-field-fileheight-value="1101"
-            data-field-top-res-320-value="101" data-field-left-res-320-value="1" data-field-width-res-320-value="209">
-            <div class='tn-atom'> <img class='tn-atom__img t-img'
-                data-original='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/date_svadbi.png'
-                src='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/date_svadbi.png'
-                alt='' imgfield='tn_img_1715803391236' /> </div>
-          </div>
-          <div class='t396__elem tn-elem tn-elem__7482444251715803391240 t-animate' data-elem-id='1715803391240'
-            data-elem-type='shape' data-field-top-value="142" data-field-left-value="-485" data-field-height-value="100"
-            data-field-width-value="100" data-field-axisy-value="center" data-field-axisx-value="center"
-            data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px"
-            data-field-heightunits-value="px" data-field-widthunits-value="px" data-animate-style="zoomin"
-            data-animate-duration="3" data-animate-scale="1.2" data-animate-mobile="y" data-field-top-res-320-value="0"
-            data-field-left-res-320-value="6" data-field-height-res-320-value="565" data-field-width-res-320-value="573"
-            data-field-axisy-res-320-value="top">
-            <div class='tn-atom t-bgimg'
-              data-original="https://static.tildacdn.com/tild6130-6235-4232-a232-333238303433/photo.png" aria-label=''
-              role="img"> </div>
-          </div>
-        </div>
+      <div class="wedding-date-static" aria-label="Дата свадьбы">
+        <span class="wedding-date-line wedding-date-line--top"></span>
+        <img class="wedding-date-img"
+          src="https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/date_svadbi.png"
+          alt="Дата свадьбы" draggable="false">
+        <img class="wedding-date-flower"
+          src="https://static.tildacdn.com/tild3533-6236-4437-b862-316234303962/___.png"
+          alt="" draggable="false">
+        <span class="wedding-date-line wedding-date-line--bottom"></span>
       </div>
-      <script>t_onFuncLoad('t396_initialScale', function () { t396_initialScale('748244425'); }); t_onReady(function () { t_onFuncLoad('t396_init', function () { t396_init('748244425'); }); });</script>
-      <!-- /T396 -->
     </div>
     <div id="rec748244426" class="r t-rec t-screenmax-640px" style=" " data-record-type="215" data-screen-max="640px">
       <a name="karta" style="font-size:0;"></a>
@@ -8868,79 +8750,54 @@
   });
 </script>
 
-
-<!-- FIX: мобильный скролл на блоке с датой свадьбы (#rec748244425).
-     Причина: декоративные Zero Block слои в этом блоке перекрывают картинку и могут перехватывать touch-события.
-     Решение: на мобильных отключаем pointer-events у декоративных элементов только внутри этого блока,
-     оставляя обычный вертикальный свайп страницы. -->
-<style>
-  @media screen and (max-width: 640px) {
-    #rec748244425,
-    #rec748244425 .t396,
-    #rec748244425 .t396__artboard {
-      touch-action: pan-y !important;
-      -ms-touch-action: pan-y !important;
-    }
-
-    #rec748244425 .t396__artboard {
-      overflow: hidden !important;
-    }
-
-    #rec748244425 .t396__carrier,
-    #rec748244425 .t396__filter,
-    #rec748244425 .tn-elem,
-    #rec748244425 .tn-atom,
-    #rec748244425 .tn-atom__img {
-      pointer-events: none !important;
-      touch-action: pan-y !important;
-      -ms-touch-action: pan-y !important;
-      -webkit-user-drag: none !important;
-      user-select: none !important;
-      -webkit-user-select: none !important;
-    }
-
-    /* Большой декоративный фон внутри блока опускаем ниже картинки, чтобы он не лежал поверх нее. */
-    #rec748244425 .tn-elem[data-elem-id="1715803391240"] {
-      z-index: 1 !important;
-    }
-
-    #rec748244425 .tn-elem[data-elem-id="1710944934362"],
-    #rec748244425 .tn-elem[data-elem-id="1710944940709"],
-    #rec748244425 .tn-elem[data-elem-id="1713255750301"],
-    #rec748244425 .tn-elem[data-elem-id="1715803391236"] {
-      z-index: 3 !important;
-    }
-  }
-</style>
-<script>
+<script id="mobile-scroll-final-fix-v4-script">
   (function () {
-    function fixMobileDateBlockScroll() {
-      if (window.innerWidth > 640) return;
-      var block = document.getElementById('rec748244425');
-      if (!block) return;
+    function isMobile() {
+      return window.matchMedia ? window.matchMedia('(max-width: 640px)').matches : window.innerWidth <= 640;
+    }
 
-      var artboard = block.querySelector('.t396__artboard');
-      if (artboard) {
-        artboard.style.setProperty('touch-action', 'pan-y', 'important');
-        artboard.style.setProperty('-ms-touch-action', 'pan-y', 'important');
-        artboard.style.setProperty('overflow', 'hidden', 'important');
+    function applyMobileScrollFix() {
+      if (!isMobile()) return;
+
+      [document.documentElement, document.body, document.getElementById('allrecords')].forEach(function (el) {
+        if (!el) return;
+        el.style.setProperty('overflow-x', 'hidden', 'important');
+        el.style.setProperty('overflow-y', 'auto', 'important');
+        el.style.setProperty('touch-action', 'pan-y', 'important');
+        el.style.setProperty('-webkit-overflow-scrolling', 'touch', 'important');
+      });
+
+      var dateBlock = document.getElementById('rec748244425');
+      if (dateBlock) {
+        dateBlock.style.setProperty('touch-action', 'pan-y', 'important');
+        dateBlock.querySelectorAll('*').forEach(function (el) {
+          el.style.setProperty('touch-action', 'pan-y', 'important');
+          if (el.tagName === 'IMG') {
+            el.style.setProperty('pointer-events', 'none', 'important');
+            el.setAttribute('draggable', 'false');
+          }
+        });
       }
 
-      block.querySelectorAll('.t396__carrier, .t396__filter, .tn-elem, .tn-atom, .tn-atom__img').forEach(function (el) {
-        el.style.setProperty('pointer-events', 'none', 'important');
-        el.style.setProperty('touch-action', 'pan-y', 'important');
-        el.style.setProperty('-ms-touch-action', 'pan-y', 'important');
-        el.style.setProperty('-webkit-user-drag', 'none', 'important');
-        el.style.setProperty('user-select', 'none', 'important');
-        el.style.setProperty('-webkit-user-select', 'none', 'important');
-        if (el.tagName && el.tagName.toLowerCase() === 'img') {
-          el.setAttribute('draggable', 'false');
-        }
-      });
+      var mapBlock = document.getElementById('rec752798779');
+      if (mapBlock) {
+        mapBlock.querySelectorAll('.t-map-lazyload, .t-map, .t-map *, iframe, ymaps, [class*="ymaps"]').forEach(function (el) {
+          el.style.setProperty('pointer-events', 'none', 'important');
+          el.style.setProperty('touch-action', 'pan-y', 'important');
+        });
+      }
     }
 
-    document.addEventListener('DOMContentLoaded', fixMobileDateBlockScroll);
-    window.addEventListener('load', fixMobileDateBlockScroll);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applyMobileScrollFix);
+    } else {
+      applyMobileScrollFix();
+    }
+    window.addEventListener('load', applyMobileScrollFix);
+    window.addEventListener('resize', applyMobileScrollFix);
+    setTimeout(applyMobileScrollFix, 500);
+    setTimeout(applyMobileScrollFix, 1500);
+    setTimeout(applyMobileScrollFix, 3000);
   })();
 </script>
 
