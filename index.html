@@ -8867,6 +8867,83 @@
     }
   });
 </script>
+
+
+<!-- FIX: мобильный скролл на блоке с датой свадьбы (#rec748244425).
+     Причина: декоративные Zero Block слои в этом блоке перекрывают картинку и могут перехватывать touch-события.
+     Решение: на мобильных отключаем pointer-events у декоративных элементов только внутри этого блока,
+     оставляя обычный вертикальный свайп страницы. -->
+<style>
+  @media screen and (max-width: 640px) {
+    #rec748244425,
+    #rec748244425 .t396,
+    #rec748244425 .t396__artboard {
+      touch-action: pan-y !important;
+      -ms-touch-action: pan-y !important;
+    }
+
+    #rec748244425 .t396__artboard {
+      overflow: hidden !important;
+    }
+
+    #rec748244425 .t396__carrier,
+    #rec748244425 .t396__filter,
+    #rec748244425 .tn-elem,
+    #rec748244425 .tn-atom,
+    #rec748244425 .tn-atom__img {
+      pointer-events: none !important;
+      touch-action: pan-y !important;
+      -ms-touch-action: pan-y !important;
+      -webkit-user-drag: none !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+    }
+
+    /* Большой декоративный фон внутри блока опускаем ниже картинки, чтобы он не лежал поверх нее. */
+    #rec748244425 .tn-elem[data-elem-id="1715803391240"] {
+      z-index: 1 !important;
+    }
+
+    #rec748244425 .tn-elem[data-elem-id="1710944934362"],
+    #rec748244425 .tn-elem[data-elem-id="1710944940709"],
+    #rec748244425 .tn-elem[data-elem-id="1713255750301"],
+    #rec748244425 .tn-elem[data-elem-id="1715803391236"] {
+      z-index: 3 !important;
+    }
+  }
+</style>
+<script>
+  (function () {
+    function fixMobileDateBlockScroll() {
+      if (window.innerWidth > 640) return;
+      var block = document.getElementById('rec748244425');
+      if (!block) return;
+
+      var artboard = block.querySelector('.t396__artboard');
+      if (artboard) {
+        artboard.style.setProperty('touch-action', 'pan-y', 'important');
+        artboard.style.setProperty('-ms-touch-action', 'pan-y', 'important');
+        artboard.style.setProperty('overflow', 'hidden', 'important');
+      }
+
+      block.querySelectorAll('.t396__carrier, .t396__filter, .tn-elem, .tn-atom, .tn-atom__img').forEach(function (el) {
+        el.style.setProperty('pointer-events', 'none', 'important');
+        el.style.setProperty('touch-action', 'pan-y', 'important');
+        el.style.setProperty('-ms-touch-action', 'pan-y', 'important');
+        el.style.setProperty('-webkit-user-drag', 'none', 'important');
+        el.style.setProperty('user-select', 'none', 'important');
+        el.style.setProperty('-webkit-user-select', 'none', 'important');
+        if (el.tagName && el.tagName.toLowerCase() === 'img') {
+          el.setAttribute('draggable', 'false');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', fixMobileDateBlockScroll);
+    window.addEventListener('load', fixMobileDateBlockScroll);
+  })();
+</script>
+
 </body>
 
 </html>
