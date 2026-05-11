@@ -211,6 +211,46 @@
     }
   }
 </style>
+
+<style>
+  @media screen and (max-width: 640px) {
+    #rec748244456,
+    #rec748244456 .t396,
+    #rec748244456 .t396__artboard {
+      overflow: visible !important;
+    }
+
+    .guest-form-link {
+      position: relative;
+      z-index: 50;
+      width: 100%;
+      height: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 330px;
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+
+    .guest-form-link a {
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 260px;
+      height: 56px;
+      border-radius: 999px;
+      background: #6b35c9;
+      color: #ffffff !important;
+      font-size: 18px;
+      text-decoration: none !important;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+  }
+</style>
+
 </head>
 
 <body class="t-body" style="margin:0;"> <!--allrecords-->
@@ -1729,7 +1769,7 @@
 
         @media screen and (max-width:640px) {
           #rec748244421 .tn-elem[data-elem-id="1715769208107"] {
-            top: calc(300px + 50px) !important;
+            top: calc(300px + 40px) !important;
             left: center
               /*calc(50% - 100px + -80px) */
               !important;
@@ -1738,7 +1778,7 @@
 
         @media screen and (max-width:640px) {
           #rec748244421 .tn-elem[data-elem-id="1715769704239"] {
-            top: calc(300px + 110px) !important;
+            top: calc(300px + 100px) !important;
             left: center
               /* calc(50% - 100px + 20px) */
               !important;
@@ -1747,7 +1787,7 @@
 
         @media screen and (max-width:640px) {
           #rec748244421 .tn-elem[data-elem-id="1715769569580"] {
-            top: calc(300px + 140px) !important;
+            top: calc(300px + 130px) !important;
             left: center
               /* calc(50% - 100px + -10px) */
               !important;
@@ -1756,7 +1796,7 @@
 
         @media screen and (max-width:640px) {
           #rec748244421 .tn-elem[data-elem-id="1715769956648"] {
-            top: calc(300px + 210px) !important;
+            top: calc(300px + 200px) !important;
             left: calc(50% - 100px + 40px) !important;
           }
         }
@@ -7667,6 +7707,15 @@
             Загрузка…
           </iframe>
         </div>
+        <!-- <div class="guest-form-link">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdm8SJoqkvJLXTFJtnRjGrtOoWtt7s6bzC2425iS2XZwqLLxQ/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Заполнить анкету
+          </a>
+        </div> -->
         <div class='t396__elem tn-elem tn-elem__7482444561702539904605 t-animate' data-elem-id='1702539904605'
           data-elem-type='text' data-field-top-value="59" data-field-left-value="-20" data-field-height-value="138"
           data-field-width-value="600" data-field-axisy-value="top" data-field-axisx-value="center"
@@ -8811,10 +8860,10 @@
         el.style.overflow = 'visible';
       });
 
-      document.querySelectorAll('#rec748244456 iframe').forEach(function (el) {
-        el.style.pointerEvents = 'auto';
-        el.style.display = 'block';
-      });
+      // document.querySelectorAll('#rec748244456 iframe').forEach(function (el) {
+      //   el.style.pointerEvents = 'auto';
+      //   el.style.display = 'block';
+      // });
     }
   });
 </script>
