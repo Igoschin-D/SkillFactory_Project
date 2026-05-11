@@ -1075,29 +1075,31 @@
               .swipe-unlocker .tn-atom {}
 
 
+
               body.t-body {
                 overflow-x: hidden;
-                overflow-y: auto;
+                overflow-y: auto !important;
               }
 
               body.t-body.overflow {
-                overflow: auto;
+                overflow-x: hidden;
+                overflow-y: auto !important;
               }
 
-              /* .uc-swipe-block {
+              .uc-swipe-block {
                 position: fixed;
                 top: 0;
                 width: 100%;
                 left: 0;
                 z-index: 999;
                 transition: all 1.5s ease-in-out 0.3s;
-              } */
+              }
 
               .uc-swipe-block.slide-move {
                 opacity: 0;
                 pointer-events: none;
                 visibility: hidden;
-                display: none;
+
               }
 
               .swipe-unlocker .tn-atom {
