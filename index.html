@@ -251,89 +251,6 @@
   }
 </style>
 
-
-<style id="wedding-mobile-scroll-fix-v10">
-  @media screen and (max-width: 640px) {
-    html,
-    body {
-      overflow-x: hidden !important;
-      overflow-y: auto !important;
-      height: auto !important;
-      min-height: 100% !important;
-      -webkit-overflow-scrolling: touch !important;
-    }
-
-    body.t-body.wedding-unlocked,
-    html.wedding-unlocked {
-      touch-action: pan-y !important;
-      overscroll-behavior-y: auto !important;
-    }
-
-    html.wedding-unlocked .uc-swipe-block,
-    body.wedding-unlocked .uc-swipe-block,
-    .uc-swipe-block.is-unlocked,
-    .uc-swipe-block.slide-move {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      z-index: -1 !important;
-      height: 0 !important;
-      min-height: 0 !important;
-      overflow: hidden !important;
-    }
-
-    #allrecords {
-      overflow-x: hidden !important;
-      touch-action: pan-y !important;
-    }
-
-    /* Problem area: decorative Zero Block layers must never receive touch events. */
-    #rec748244425,
-    #rec748244425 .t396,
-    #rec748244425 .t396__artboard {
-      touch-action: pan-y !important;
-      -webkit-overflow-scrolling: touch !important;
-    }
-
-    #rec748244425 .t396__carrier,
-    #rec748244425 .t396__filter,
-    #rec748244425 .tn-elem,
-    #rec748244425 .tn-atom,
-    #rec748244425 img {
-      pointer-events: none !important;
-      touch-action: pan-y !important;
-      -webkit-user-drag: none !important;
-      user-select: none !important;
-      -webkit-user-select: none !important;
-    }
-
-    #rec748244425 .tn-elem[data-elem-id="1715803391240"] {
-      z-index: 0 !important;
-      pointer-events: none !important;
-    }
-
-    #rec748244425 .tn-elem[data-elem-id="1715803391236"],
-    #rec748244425 .tn-elem[data-elem-id="1713255750301"],
-    #rec748244425 .tn-elem[data-elem-id="1710944934362"],
-    #rec748244425 .tn-elem[data-elem-id="1710944940709"] {
-      z-index: 3 !important;
-      pointer-events: none !important;
-    }
-
-    /* Let the page scroll over the map on mobile; map can still be opened in a map app separately if needed. */
-    #rec752798779,
-    #rec752798779 .t-map-lazyload,
-    #rec752798779 .t-map,
-    #rec752798779 iframe,
-    #rec752798779 ymaps,
-    #rec752798779 [class*="ymaps"] {
-      touch-action: pan-y !important;
-      pointer-events: none !important;
-    }
-  }
-</style>
-
 </head>
 
 <body class="t-body" style="margin:0;"> <!--allrecords-->
@@ -1227,316 +1144,235 @@
       <script>t_onReady(function () { t_onFuncLoad('t396_init', function () { t396_init('748244418'); }); });</script>
       <!-- /T396 -->
     </div>
-    <div id="rec748244419" class="r t-rec t-rec_pb_0 wedding-unlock-controller" style="padding-bottom:0px; " data-animationappear="off" data-record-type="131">
-      <!-- Rewritten mobile unlock controller. The old jQuery/GSAP document touchmove handler was removed. -->
-      <style>
-        div#allrecords { padding-top: 0; }
-        div#allrecords.hide-padding { padding-top: 0 !important; transition: none !important; }
+    <div id="rec748244419" class="r t-rec t-rec_pb_0" style="padding-bottom:0px; " data-animationappear="off"
+      data-record-type="131"> <!-- T123 -->
+      <div class="t123">
+        <div class="t-container_100 ">
+          <div class="t-width t-width_100 "> <!-- nominify begin -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+            <style>
+              div#allrecords {
+                padding-top: 0;
 
-        body.t-body {
-          overflow-x: hidden;
-          overflow-y: auto;
-        }
-
-        html.wedding-unlocked,
-        body.t-body.wedding-unlocked,
-        body.t-body.overflow {
-          overflow-x: hidden !important;
-          overflow-y: auto !important;
-          height: auto !important;
-          min-height: 100% !important;
-          -webkit-overflow-scrolling: touch !important;
-          touch-action: pan-y !important;
-        }
-
-        .uc-swipe-block {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          z-index: 999;
-          transition: opacity .45s ease, visibility .45s ease;
-          touch-action: none;
-        }
-
-        .uc-swipe-block.slide-move,
-        .uc-swipe-block.is-unlocked,
-        html.wedding-unlocked .uc-swipe-block,
-        body.wedding-unlocked .uc-swipe-block {
-          opacity: 0 !important;
-          pointer-events: none !important;
-          visibility: hidden !important;
-          display: none !important;
-          z-index: -1 !important;
-          height: 0 !important;
-          min-height: 0 !important;
-          overflow: hidden !important;
-        }
-
-        .swipe-unlocker .tn-atom {
-          display: flex !important;
-          justify-content: center;
-          align-items: center;
-          touch-action: none;
-        }
-
-        .swiper {
-          position: relative;
-          width: 240px;
-          height: 70px;
-          border-radius: 100px;
-          padding: 5px;
-          box-sizing: border-box;
-          touch-action: none;
-          user-select: none;
-          -webkit-user-select: none;
-          -webkit-user-drag: none;
-        }
-
-        .swiper.finish-mode { opacity: 0; }
-        .swiper svg { position: absolute; top: 5px; left: 5px; overflow: visible; }
-        .swiper .swipe-btn { cursor: pointer; touch-action: none; }
-        .swiper .dotted-line circle { fill: #fff; }
-        .swiper .swipe-end {
-          fill-rule: evenodd;
-          stroke: #ffffff;
-          stroke-width: 1px;
-          stroke-linecap: butt;
-          stroke-linejoin: miter;
-          fill: none;
-          transform: matrix(1, 0, 0, 1, 190, 12);
-        }
-        .swiper .arrow {
-          stroke: #000;
-          stroke-width: 2px;
-          stroke-linecap: round;
-          stroke-linejoin: miter;
-          fill: #fff;
-        }
-        .swiper .btn-text.t-text {
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          margin-top: -2px;
-          font-size: 17px;
-          color: #fff;
-          font-weight: 400;
-          padding-right: 10px;
-        }
-      </style>
-      <script>
-        (function () {
-          'use strict';
-
-          if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-          }
-
-          var MAX_X = 190;
-          var UNLOCK_X = 135;
-          var startX = 0;
-          var startY = 0;
-          var currentX = 0;
-          var dragging = false;
-          var unlockDone = false;
-          var moveHandlerAttached = false;
-
-          var swiperHtml = '' +
-            '<div class="swiper" role="button" aria-label="Разблокировать приглашение">' +
-              '<div class="btn-text t-text"></div>' +
-              '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240px" height="70px" viewBox="0 0 240 70">' +
-                '<g id="dotted-line" class="dotted-line">' +
-                  '<circle cx="53" cy="22" r="3"></circle><circle cx="70" cy="22" r="3"></circle><circle cx="87" cy="22" r="3"></circle><circle cx="105" cy="22" r="3"></circle>' +
-                  '<circle cx="123" cy="22" r="3"></circle><circle cx="143" cy="22" r="3"></circle><circle cx="163" cy="22" r="3"></circle><circle cx="180" cy="22" r="3"></circle>' +
-                '</g>' +
-                '<circle id="swipe-end" class="swipe-end" cx="22" cy="30" r="25" stroke="white"></circle>' +
-                '<g id="swipe-btn" class="swipe-btn" transform="translate(0,0)">' +
-                  '<path fill-rule="evenodd" fill="#fff" opacity="100%" d="M22.000,0.001 C34.150,0.001 44.000,9.850 44.000,22.000 C44.000,34.150 34.150,44.000 22.000,44.000 C9.850,44.000 0.000,34.150 0.000,22.000 C0.000,9.850 9.850,0.001 22.000,0.001 Z"></path>' +
-                  '<path id="swipe-arrow" class="arrow" d="M17 12 L26 22 L17 32" stroke="black" stroke-width="2" stroke-linecap="round" fill="none"></path>' +
-                '</g>' +
-              '</svg>' +
-            '</div>';
-
-          function isMobile() {
-            return window.matchMedia ? window.matchMedia('(max-width: 640px)').matches : window.innerWidth <= 640;
-          }
-
-          function rootScrollOn() {
-            document.documentElement.classList.add('wedding-unlocked');
-            if (document.body) {
-              document.body.classList.add('wedding-unlocked');
-              document.body.classList.add('overflow');
-              document.body.style.setProperty('overflow-x', 'hidden', 'important');
-              document.body.style.setProperty('overflow-y', 'auto', 'important');
-              document.body.style.setProperty('height', 'auto', 'important');
-              document.body.style.setProperty('touch-action', 'pan-y', 'important');
-              document.body.style.setProperty('-webkit-overflow-scrolling', 'touch', 'important');
-            }
-            document.documentElement.style.setProperty('overflow-y', 'auto', 'important');
-            document.documentElement.style.setProperty('height', 'auto', 'important');
-            var allrecords = document.getElementById('allrecords');
-            if (allrecords) {
-              allrecords.classList.add('hide-padding');
-              allrecords.style.setProperty('overflow-x', 'hidden', 'important');
-              allrecords.style.setProperty('touch-action', 'pan-y', 'important');
-            }
-          }
-
-          function removeUnlockBlock() {
-            var blocks = document.querySelectorAll('.uc-swipe-block');
-            Array.prototype.forEach.call(blocks, function (block) {
-              block.classList.add('slide-move');
-              block.classList.add('is-unlocked');
-              block.setAttribute('aria-hidden', 'true');
-              block.style.setProperty('display', 'none', 'important');
-              block.style.setProperty('visibility', 'hidden', 'important');
-              block.style.setProperty('pointer-events', 'none', 'important');
-              block.style.setProperty('z-index', '-1', 'important');
-              block.style.setProperty('height', '0', 'important');
-              block.style.setProperty('min-height', '0', 'important');
-              block.style.setProperty('overflow', 'hidden', 'important');
-              if (block.parentNode) {
-                try { block.parentNode.removeChild(block); } catch (e) {}
               }
-            });
-          }
 
-          function setKnob(x) {
-            currentX = Math.max(0, Math.min(MAX_X, x));
-            var knob = document.getElementById('swipe-btn');
-            if (knob) knob.setAttribute('transform', 'translate(' + currentX + ',0)');
-          }
+              div#allrecords.hide-padding {
+                padding-top: 0 !important;
+                transition: all 0s ease-in-out 0.3s;
 
-          function unlock() {
-            if (unlockDone) return;
-            unlockDone = true;
-            dragging = false;
-            try { sessionStorage.setItem('weddingInviteUnlocked', '1'); } catch (e) {}
-            var swiper = document.querySelector('.swiper');
-            if (swiper) swiper.classList.add('finish-mode');
-            setKnob(MAX_X);
-            rootScrollOn();
-            removeDocumentHandlers();
-            removeUnlockBlock();
-            setTimeout(rootScrollOn, 0);
-            setTimeout(rootScrollOn, 250);
-            setTimeout(removeUnlockBlock, 250);
-          }
+              }
 
-          function pointFromEvent(event) {
-            var src = event.touches && event.touches.length ? event.touches[0] : (event.changedTouches && event.changedTouches.length ? event.changedTouches[0] : event);
-            return { x: src.clientX || src.pageX || 0, y: src.clientY || src.pageY || 0 };
-          }
+              .swiper {
+                border-radius: 100px;
+                padding: 5px 5px;
+                4px;
+                transition: all 0.3s ease-in-out;
+              }
 
-          function prevent(event) {
-            if (event && event.cancelable) event.preventDefault();
-          }
+              .swipe-unlocker .tn-atom {}
 
-          function onStart(event) {
-            if (unlockDone) return;
-            var p = pointFromEvent(event);
-            startX = p.x;
-            startY = p.y;
-            currentX = 0;
-            dragging = true;
-            prevent(event);
-            attachDocumentHandlers();
-          }
 
-          function onMove(event) {
-            if (!dragging || unlockDone) return;
-            var p = pointFromEvent(event);
-            var dx = p.x - startX;
-            var dy = p.y - startY;
-            if (dx < -8 || (Math.abs(dy) > Math.abs(dx) * 1.8 && Math.abs(dy) > 20)) {
-              dragging = false;
-              setKnob(0);
-              return;
-            }
-            prevent(event);
-            setKnob(dx);
-            if (currentX >= UNLOCK_X) unlock();
-          }
+              body.t-body {
+                overflow-x: hidden;
+                overflow-y: auto;
+              }
 
-          function onEnd(event) {
-            if (!dragging || unlockDone) return;
-            dragging = false;
-            prevent(event);
-            if (currentX >= UNLOCK_X * 0.75) unlock();
-            else setKnob(0);
-          }
+              body.t-body.overflow {
+                overflow: auto;
+              }
 
-          function attachDocumentHandlers() {
-            if (moveHandlerAttached) return;
-            moveHandlerAttached = true;
-            document.addEventListener('touchmove', onMove, { passive: false, capture: true });
-            document.addEventListener('touchend', onEnd, { passive: false, capture: true });
-            document.addEventListener('touchcancel', onEnd, { passive: false, capture: true });
-            document.addEventListener('mousemove', onMove, true);
-            document.addEventListener('mouseup', onEnd, true);
-          }
+              .uc-swipe-block {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                left: 0;
+                z-index: 999;
+                transition: all 1.5s ease-in-out 0.3s;
+              }
 
-          function removeDocumentHandlers() {
-            if (!moveHandlerAttached) return;
-            moveHandlerAttached = false;
-            document.removeEventListener('touchmove', onMove, true);
-            document.removeEventListener('touchend', onEnd, true);
-            document.removeEventListener('touchcancel', onEnd, true);
-            document.removeEventListener('mousemove', onMove, true);
-            document.removeEventListener('mouseup', onEnd, true);
-          }
+              .uc-swipe-block.slide-move {
+                opacity: 0;
+                pointer-events: none;
+                visibility: hidden;
+                display: none;
+              }
 
-          function initUnlocker() {
-            rootScrollOn();
-            if (!isMobile()) {
-              removeUnlockBlock();
-              return;
-            }
+              .swipe-unlocker .tn-atom {
+                display: flex !important;
+                justify-content: center;
+              }
 
-            var alreadyUnlocked = false;
-            try { alreadyUnlocked = sessionStorage.getItem('weddingInviteUnlocked') === '1'; } catch (e) {}
-            if (alreadyUnlocked) {
-              removeUnlockBlock();
-              return;
-            }
+              .swiper.finish-mode {
+                opacity: 0;
+              }
 
-            document.documentElement.classList.remove('wedding-unlocked');
-            if (document.body) document.body.classList.remove('wedding-unlocked');
+              .swiper svg {
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                overflow: visible;
+              }
 
-            var holder = document.querySelector('.swipe-unlocker .tn-atom');
-            if (!holder) {
-              removeUnlockBlock();
-              return;
-            }
-            holder.innerHTML = swiperHtml;
+              .swiper {
+                position: relative;
+                width: 240px;
+                height: 70px;
+              }
 
-            var swiper = holder.querySelector('.swiper');
-            var knob = holder.querySelector('#swipe-btn');
-            if (swiper) {
-              swiper.addEventListener('touchstart', onStart, { passive: false });
-              swiper.addEventListener('mousedown', onStart, false);
-              swiper.addEventListener('click', function (event) { prevent(event); }, false);
-            }
-            if (knob) {
-              knob.addEventListener('touchstart', onStart, { passive: false });
-              knob.addEventListener('mousedown', onStart, false);
-            }
-          }
+              .btn-text.t-text {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                margin-top: -2px;
+                font-size: 17px;
+                color: #fff;
+                font-weight: 400;
+                padding-right: 10px;
+              }
 
-          if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initUnlocker);
-          } else {
-            initUnlocker();
-          }
-          window.addEventListener('pageshow', function () {
-            if (unlockDone) {
-              rootScrollOn();
-              removeUnlockBlock();
-            }
-          });
-        })();
-      </script>
+
+              .swiper .swipe-btn {
+                cursor: pointer;
+              }
+
+              .swiper .swipe-btn.back-to-start {
+                -webkit-transition: -webkit-transform .5s ease-in-out;
+                transition: -webkit-transform .5s ease-in-out;
+                transition: transform .5s ease-in-out;
+                transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+                -webkit-transform: translateX(0) !important;
+                transform: translateX(0) !important;
+              }
+
+              .swiper .swipe-btn .circle {
+                fill: #ed7000;
+              }
+
+              .swiper .swipe-btn .arrow {
+                stroke: #000;
+                stroke-width: 2px;
+                stroke-linecap: butt;
+                stroke-linejoin: miter;
+                fill: #fff;
+              }
+
+              .swiper .swipe-end {
+                fill-rule: evenodd;
+                stroke: #ffffff;
+                stroke-width: 1px;
+                stroke-linecap: butt;
+                stroke-linejoin: miter;
+                fill: none;
+                transform: matrix(1, 0, 0, 1, 190, -8);
+              }
+
+              .swiper .dotted-line circle {
+                fill: #0d3d7d;
+              }
+
+              .unlock {
+                text-transform: uppercase;
+                font-size: 12px;
+                letter-spacing: 2px;
+                color: #0d3d7d;
+                text-align: center;
+                padding: 10px;
+                -webkit-transition: opacity .3s ease-in-out;
+                transition: opacity .3s ease-in-out;
+                opacity: 0;
+              }
+
+              .swiper .dotted-line circle {
+                fill: #fff;
+              }
+            </style>
+            <script>
+
+              if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+              }
+
+
+              swiperElem = `
+
+<div class="swiper"> <div class="btn-text t-text"></div> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240px" height="70px"> <g id="dotted-line" class="dotted-line"> <circle cx="53" cy="22" r="3"></circle> <circle cx="70" cy="22" r="3"></circle> <circle cx="87" cy="22" r="3"></circle> <circle cx="105" cy="22" r="3"></circle> <circle cx="123" cy="22" r="3"></circle> <circle cx="143" cy="22" r="3"></circle> <circle cx="163" cy="22" r="3"></circle> <circle cx="180" cy="22" r="3"></circle> </g> <circle  id="swipe-end" class="swipe-end" cx="22" cy="30" r="25" stroke="white"/> <a id="swipe-btn" class="swipe-btn" xlink:href= "http://example.com/link/"> <g> <path fill-rule="evenodd"  fill="#fff"   opacity="100%"
+              d="M22.000,0.001 C34.150,0.001 44.000,9.850 44.000,22.000 C44.000,34.150 34.150,44.000 22.000,44.000 C9.850,44.000 0.000,34.150 0.000,22.000 C0.000,9.850 9.850,0.001 22.000,0.001 Z"/> <path id="swipe-arrow" class="arrow" fill-rule="#32b2f7"     d="M1 1L10 10L1 19" stroke="black" stroke-width="2" stroke-linecap="round"/> </g> </a> </svg> </div>
+
+
+`;
+
+
+              $('.swipe-unlocker .tn-atom').html(swiperElem);
+
+              let swiperDragged = false,
+                startX,
+                endX = 0;
+
+              function swipe() {
+                let $swipe = $('.swiper'),
+                  $btn = $('.swipe-btn', $swipe);
+
+                TweenLite.to('#swipe-arrow', 0, { x: 16, y: 11 });
+                TweenLite.to('#swipe-end', 0, { x: 190, y: 12 });
+
+                let tl = new TimelineMax({ repeat: -1 });
+                tl.staggerFrom("#dotted-line circle", 0.7, { scale: 0.7, x: -2, y: .5, opacity: 0.7, delay: 0.1, ease: Power2.easeInOut, repeat: 1, yoyo: true }, 0.15);
+
+                $btn.on('click touchend', function (e) {
+                  e.preventDefault();
+                }).on('touchstart mousedown', function (e) {
+                  e.preventDefault();
+                  swiperDragged = true;
+                  startX = typeof e.pageX != 'undefined' ? e.pageX : e.originalEvent.touches[0].pageX;
+                  endX = 0;
+                })
+
+                $(document).on('touchmove mousemove', function (e) {
+                  if (swiperDragged) {
+                    actualX = typeof e.pageX != 'undefined' ? e.pageX : e.originalEvent.touches[0].pageX;
+                    endX = Math.max(0, Math.min(190, actualX - startX));
+                    TweenLite.to('#swipe-btn', 0, { x: endX });
+                  }
+                }).on('touchend mouseup', function (e) {
+                  if (swiperDragged) {
+                    swiperDragged = false;
+                    if (endX < 190) {
+                      TweenLite.to('#swipe-btn', .5, { x: 0 });
+                    } else {
+
+                      $('.swiper').addClass('finish-mode');
+                      $('.uc-swipe-block').addClass('slide-move');
+
+                      setTimeout(function () {
+                        $('.uc-swipe-block').remove();
+                      }, 1600);
+                      $('div#allrecords').addClass('hide-padding');
+
+                      $('.t-body').addClass('overflow');
+
+                      //window.location.href = 'http://www.google.com'; 
+                      TweenLite.to('#swipe-btn', .1, { x: 190 });
+                      setTimeout(function () {
+                        TweenLite.to('#swipe-btn', .5, { x: 0 });
+                        $('.swiper').removeClass('finish-mode');
+                      }, 2000);
+                    }
+                    endX = 0;
+                  }
+                });
+              }
+              swipe();
+
+              $(document).ready(function () {
+                setTimeout(function () {
+                  $(window).scrollTop(0);
+                }, 700);
+              });
+            </script> <!-- nominify end -->
+          </div>
+        </div>
+      </div>
     </div>
     <div id="rec748244421" class="r t-rec t-rec_pt_0 t-screenmax-640px" style="padding-top:0px; "
       data-animationappear="off" data-record-type="396" data-screen-max="640px"> <!-- T396 -->
@@ -2589,7 +2425,7 @@
           data-artboard-height-res-320="565" data-artboard-height-res-641="175" data-artboard-height-res-960="220">
           <div class="t396__carrier" data-artboard-recid="748244425"></div>
           <div class="t396__filter" data-artboard-recid="748244425"></div>
-          <div class='t396__elem tn-elem tn-elem__7482444251710944934362 t-animate' data-elem-id='1710944934362'
+          <!-- <div class='t396__elem tn-elem tn-elem__7482444251710944934362 t-animate' data-elem-id='1710944934362'
             data-elem-type='shape' data-field-top-value="59" data-field-left-value="0" data-field-height-value="2"
             data-field-width-value="150" data-field-axisy-value="top" data-field-axisx-value="center"
             data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px"
@@ -2597,8 +2433,8 @@
             data-animate-duration="3" data-animate-trigger-offset="50" data-field-top-res-320-value="36"
             data-field-left-res-320-value="0" data-field-height-res-320-value="1" data-field-width-res-320-value="100">
             <div class='tn-atom'> </div>
-          </div>
-          <div class='t396__elem tn-elem tn-elem__7482444251710944940709 t-animate' data-elem-id='1710944940709'
+          </div> -->
+          <!-- <div class='t396__elem tn-elem tn-elem__7482444251710944940709 t-animate' data-elem-id='1710944940709'
             data-elem-type='shape' data-field-top-value="59" data-field-left-value="0" data-field-height-value="2"
             data-field-width-value="150" data-field-axisy-value="top" data-field-axisx-value="center"
             data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px"
@@ -2606,7 +2442,7 @@
             data-animate-duration="3" data-animate-trigger-offset="50" data-field-top-res-320-value="506"
             data-field-left-res-320-value="0" data-field-height-res-320-value="1" data-field-width-res-320-value="100">
             <div class='tn-atom'> </div>
-          </div>
+          </div> -->
           <div class='t396__elem tn-elem tn-elem__7482444251713255750301 t-animate' data-elem-id='1713255750301'
             data-elem-type='image' data-field-top-value="120" data-field-left-value="-404" data-field-width-value="70"
             data-field-axisy-value="top" data-field-axisx-value="center" data-field-container-value="grid"
@@ -2632,7 +2468,7 @@
                 src='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/date_svadbi.png'
                 alt='' imgfield='tn_img_1715803391236' /> </div>
           </div>
-          <div class='t396__elem tn-elem tn-elem__7482444251715803391240 t-animate' data-elem-id='1715803391240'
+          <!-- <div class='t396__elem tn-elem tn-elem__7482444251715803391240 t-animate' data-elem-id='1715803391240'
             data-elem-type='shape' data-field-top-value="142" data-field-left-value="-485" data-field-height-value="100"
             data-field-width-value="100" data-field-axisy-value="center" data-field-axisx-value="center"
             data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px"
@@ -2643,7 +2479,7 @@
             <div class='tn-atom t-bgimg'
               data-original="https://static.tildacdn.com/tild6130-6235-4232-a232-333238303433/photo.png" aria-label=''
               role="img"> </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <script>t_onFuncLoad('t396_initialScale', function () { t396_initialScale('748244425'); }); t_onReady(function () { t_onFuncLoad('t396_init', function () { t396_init('748244425'); }); });</script>
@@ -4590,8 +4426,8 @@
             data-field-fileheight-value="237" data-field-top-res-320-value="353" data-field-left-res-320-value="-24"
             data-field-width-res-320-value="235">
             <div class='tn-atom'> <img class='tn-atom__img t-img'
-                data-original='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/sbor_gostey1.png'
-                src='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/sbor_gostey1.png'
+                data-original='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/sbor_gostey11.png'
+                src='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/sbor_gostey11.png'
                 alt='' imgfield='tn_img_1715798962071' /> </div>
           </div>
           <div class='t396__elem tn-elem tn-elem__7482444311715799194705 t-animate' data-elem-id='1715799194705'
@@ -4603,8 +4439,8 @@
             data-field-fileheight-value="207" data-field-top-res-320-value="574" data-field-left-res-320-value="27"
             data-field-width-res-320-value="194">
             <div class='tn-atom'> <img class='tn-atom__img t-img'
-                data-original='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/bbankett.png'
-                src='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/bbankett.png'
+                data-original='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/bankettt.png'
+                src='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/bankettt.png'
                 alt='' imgfield='tn_img_1715799194705' /> </div>
           </div>
           <div class='t396__elem tn-elem tn-elem__7482444311715799349733 t-animate' data-elem-id='1715799349733'
@@ -7864,7 +7700,7 @@
         <div style="position: relative; width: 100%; height: 900px;">
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSdm8SJoqkvJLXTFJtnRjGrtOoWtt7s6bzC2425iS2XZwqLLxQ/viewform?embedded=true"
-            style="position: absolute; top: 330px; left: 50%; transform: translateX(-50%); width: 400px; height: 1000px; border: 0;"
+            style="position: absolute; top: 330px; left: 50%; transform: translateX(-50%); width: 400px; height: 1200px; border: 0;"
             frameborder="0"
             marginheight="0"
             marginwidth="0">
@@ -8437,7 +8273,7 @@
           data-field-axisy-value="top" data-field-axisx-value="center" data-field-container-value="grid"
           data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value=""
           data-field-widthunits-value="px" data-field-filewidth-value="867" data-field-fileheight-value="785"
-          data-field-top-res-320-value="770" data-field-left-res-320-value="3" data-field-width-res-320-value="250">
+          data-field-top-res-320-value="400" data-field-left-res-320-value="3" data-field-width-res-320-value="250">
           <div class='tn-atom'> <img class='tn-atom__img t-img'
               data-original='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/Daniil%26Anna1.png'
               src='https://raw.githubusercontent.com/Igoschin-D/SkillFactory_Project/refs/heads/main/Daniil%26Anna1.png'
@@ -9031,54 +8867,6 @@
     }
   });
 </script>
-
-<script id="wedding-mobile-scroll-cleanup-v10">
-  (function () {
-    function isMobile() {
-      return window.matchMedia ? window.matchMedia('(max-width: 640px)').matches : window.innerWidth <= 640;
-    }
-
-    function cleanup() {
-      if (!isMobile()) return;
-      var unlocked = false;
-      try { unlocked = sessionStorage.getItem('weddingInviteUnlocked') === '1'; } catch (e) {}
-      if (unlocked) {
-        document.documentElement.classList.add('wedding-unlocked');
-        if (document.body) {
-          document.body.classList.add('wedding-unlocked');
-          document.body.classList.add('overflow');
-        }
-        document.querySelectorAll('.uc-swipe-block').forEach(function (block) {
-          block.classList.add('is-unlocked');
-          block.classList.add('slide-move');
-          block.style.setProperty('display', 'none', 'important');
-          block.style.setProperty('visibility', 'hidden', 'important');
-          block.style.setProperty('pointer-events', 'none', 'important');
-          block.style.setProperty('z-index', '-1', 'important');
-          if (block.parentNode) {
-            try { block.parentNode.removeChild(block); } catch (e) {}
-          }
-        });
-      }
-      [document.documentElement, document.body].forEach(function (el) {
-        if (!el) return;
-        el.style.setProperty('overflow-x', 'hidden', 'important');
-        el.style.setProperty('overflow-y', 'auto', 'important');
-        el.style.setProperty('height', 'auto', 'important');
-        el.style.setProperty('-webkit-overflow-scrolling', 'touch', 'important');
-      });
-    }
-
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', cleanup);
-    else cleanup();
-    window.addEventListener('load', cleanup);
-    window.addEventListener('resize', cleanup);
-    window.addEventListener('pageshow', cleanup);
-    setTimeout(cleanup, 300);
-    setTimeout(cleanup, 1200);
-  })();
-</script>
-
 </body>
 
 </html>
